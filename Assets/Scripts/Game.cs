@@ -1,6 +1,5 @@
-using System.Collections;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class Game : MonoBehaviour
 {
@@ -9,6 +8,7 @@ public class Game : MonoBehaviour
     public GameObject Pipe;
     public float PipeSpawnDelay = 5f;
     public float HeightOffset = 10f;
+    public TMP_Text ScoreText;
     void Start()
     {
         InvokeRepeating("SpawnPipe",2f,PipeSpawnDelay);
@@ -23,6 +23,6 @@ public class Game : MonoBehaviour
     public void AddScore()
     {
         Score += 1;
-        Debug.Log(Score);
+        ScoreText.text = System.Convert.ToString(Score);
     }
 }
