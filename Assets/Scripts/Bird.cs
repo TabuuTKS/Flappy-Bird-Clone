@@ -6,7 +6,7 @@ public class Bird : MonoBehaviour
     Rigidbody2D rigidbody2d;
     public float JumpForce = 1000f;
     bool isFalling;
-    public AudioSource Wing;
+    public AudioSource Wing, Hit;
     void Start()
     {
         rigidbody2d = this.GetComponent<Rigidbody2D>();
@@ -14,9 +14,20 @@ public class Bird : MonoBehaviour
     }
     void Update()
     {
-        RotateBird();
+        if (Game.GameStart)
+        {
+            rigidbody2d.gravityScale = 1;
+            RotateBird();
+        }
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (!Game.GameStart)
+            {
+                Game.GameStart = true;
+                Game.GameStartUI.SetActive(false);
+                Game.GameUI.SetActive(true);
+            }
             rigidbody2d.linearVelocity = new Vector2(0, JumpForce);
             Wing.Play();
         }
@@ -37,6 +48,7 @@ public class Bird : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
+            Hit.Play();
             Game.PauseGame();
         }
     }

@@ -8,6 +8,7 @@ TagManager:
   - ob
   - GameUI
   - GameOverUI
+  - GameStartUI
   layers:
   - Default
   - TransparentFX

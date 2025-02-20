@@ -11,21 +11,29 @@ public class Game : MonoBehaviour
     public float HeightOffset = 10f;
     public TMP_Text ScoreText;
     public AudioSource PointSound;
-    public static GameObject GameOverUI, GameUI;
+    public static GameObject GameOverUI, GameUI, GameStartUI;
+    public static bool GameStart;
     void Start()
     {
         Time.timeScale = 1f;
+        GameStart = false;
         GameUI = GameObject.FindGameObjectWithTag("GameUI");
         GameOverUI = GameObject.FindGameObjectWithTag("GameOverUI");
+        GameStartUI = GameObject.FindGameObjectWithTag("GameStartUI");
         GameOverUI.SetActive(false);
+        GameUI.SetActive(false);
+        GameStartUI.SetActive(true);
         InvokeRepeating("SpawnPipe",2f,PipeSpawnDelay);
     }
     public void SpawnPipe()
     {
-        float LowestPoint = SpawnPoint.position.y - HeightOffset;
-        float HighestPoint = SpawnPoint.position.y + HeightOffset;
+        if (GameStart)
+        {
+            float LowestPoint = SpawnPoint.position.y - HeightOffset;
+            float HighestPoint = SpawnPoint.position.y + HeightOffset;
 
-        Instantiate(Pipe, new Vector3(SpawnPoint.position.x, Random.Range(LowestPoint, HighestPoint)), SpawnPoint.rotation);
+            Instantiate(Pipe, new Vector3(SpawnPoint.position.x, Random.Range(LowestPoint, HighestPoint)), SpawnPoint.rotation);
+        }
     }
     public void AddScore()
     {

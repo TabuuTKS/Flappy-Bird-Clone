@@ -14,11 +14,14 @@ public class Pipe : MonoBehaviour
     }
     void Update()
     {
-        transform.position -= new Vector3(Speed, 0, 0) * Time.deltaTime;
-
-        if (transform.position.x <= -10)
+        if (Game.GameStart)
         {
-            Destroy(this.gameObject);
+            transform.position -= new Vector3(Speed, 0, 0) * Time.deltaTime;
+
+            if (transform.position.x <= -10)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
