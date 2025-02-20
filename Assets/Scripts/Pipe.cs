@@ -6,6 +6,7 @@ public class Pipe : MonoBehaviour
     public float Speed = 5f;
     GameObject gameobject;
     Game game;
+
     private void Start()
     {
         gameobject = GameObject.FindGameObjectWithTag("Logic");
@@ -13,7 +14,7 @@ public class Pipe : MonoBehaviour
     }
     void Update()
     {
-        transform.position -= new Vector3(Speed,0,0) * Time.deltaTime;
+        transform.position -= new Vector3(Speed, 0, 0) * Time.deltaTime;
 
         if (transform.position.x <= -10)
         {

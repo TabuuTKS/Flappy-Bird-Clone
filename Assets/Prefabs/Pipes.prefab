@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6067635481977685912}
   m_Layer: 7
   m_Name: DownPipe
-  m_TagString: Untagged
+  m_TagString: ob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 7168057561216379143}
   m_Layer: 6
   m_Name: Pipes
-  m_TagString: Untagged
+  m_TagString: Logic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1.5
-  game: {fileID: 0}
 --- !u!61 &7168057561216379143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -242,7 +241,7 @@ GameObject:
   - component: {fileID: 3464023945992320763}
   m_Layer: 7
   m_Name: UpPipe
-  m_TagString: Untagged
+  m_TagString: ob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
