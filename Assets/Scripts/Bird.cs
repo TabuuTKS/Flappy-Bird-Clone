@@ -19,18 +19,36 @@ public class Bird : MonoBehaviour
             rigidbody2d.gravityScale = 1;
             RotateBird();
         }
-        
+
+
+        //PC Controls
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!Game.GameStart)
-            {
-                Game.GameStart = true;
-                Game.GameStartUI.SetActive(false);
-                Game.GameUI.SetActive(true);
-            }
-            rigidbody2d.linearVelocity = new Vector2(0, JumpForce);
-            Wing.Play();
+            Jump();
         }
+
+        //Android Controls
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                Jump();
+            }
+        }
+    }
+
+    void Jump()
+    {
+        if (!Game.GameStart)
+        {
+            Game.GameStart = true;
+            Game.GameStartUI.SetActive(false);
+            Game.GameUI.SetActive(true);
+        }
+        rigidbody2d.linearVelocity = new Vector2(0, JumpForce);
+        Wing.Play();
     }
     void RotateBird()
     {

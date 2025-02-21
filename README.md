@@ -10,5 +10,8 @@ Score displayed in UI and Bird Also Rotates.
 <h3>Code Version 0.3</h3>
 Sounds Work. Game Over Screen (Very Much Initial Stage).
 
-<h3>Code and Build Version 0.4</h3>
+<h3>Code and Build Version 0.4 (Windows Build)</h3>
 The Game Is Fully Functional with A Start Menu and Everything else. Also Windows Build is Ready
+
+<h3>Code and Build Version 0.5 (Android Build)</h3>
+The Game Is Fully Functional on Android Phone with Touch Controls
